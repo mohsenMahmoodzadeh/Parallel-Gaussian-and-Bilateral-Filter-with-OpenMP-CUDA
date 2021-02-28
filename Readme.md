@@ -19,7 +19,9 @@ We try the above method in 3 ways:
 
 In image processing, a Gaussian Blur is the result of blurring an image by a Gaussian function:
 
-$$f(x) = a . exp(- \frac{(x-b)^2}{2c^2} )$$
+<img src="https://render.githubusercontent.com/render/math?math=f(x) = a . exp(- \frac{(x-b)^2}{2c^2})">
+
+<!-- $$f(x) = a . exp(- \frac{(x-b)^2}{2c^2})$$ -->
 
 where a,b and c(non-zero) are real constants. The graph of a Gaussian is a characteristic symmetric "bell curve" shape. The parameter a is the height of the curve's peak, b is the position of the center of the peak and c (the standard deviation, sometimes called the Gaussian RMS width) controls the width of the "bell".
 
