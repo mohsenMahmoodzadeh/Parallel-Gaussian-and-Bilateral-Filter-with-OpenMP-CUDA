@@ -1,5 +1,6 @@
 #include<opencv4/opencv2/opencv.hpp>
 #include<iostream>
+#include"Timer.h"
 
 using namespace std;
 using namespace cv;
@@ -9,7 +10,7 @@ float distance(int x, int y, int i, int j) {
 }
 
 double gaussian(float x, double sigma) {
-    return exp(-(pow(x, 2))/(2 * pow(sigma, 2))) / (2 * 3.14 * pow(sigma, 2));
+    return exp(-(pow(x, 2))/(2 * pow(sigma, 2))) / (2 * CV_PI * pow(sigma, 2));
 
 }
 
@@ -42,8 +43,8 @@ Mat myBilateralFilter(Mat source, int diameter, double sigmaI, double sigmaS) {
     int width = source.cols;
     int height = source.rows;
 
-    for(int i = 2; i < height - 2; i++) {
-        for(int j = 2; j < width - 2; j++) {
+    for(int i = 1; i < height - 1; i++) {
+        for(int j = 1; j < width - 1; j++) {
             applyBilateralFilter(source, filteredImage, i, j, diameter, sigmaI, sigmaS);
         }
     }
@@ -55,22 +56,35 @@ int main(int argc, char** argv) {
   
     Mat originalImage;
     originalImage = imread(argv[1], IMREAD_GRAYSCALE);
+    int num_iterations = atoi(argv[2]);
     
     if(! originalImage.data ) {
       std::cout <<  "Image not found or unable to open" << std::endl ;
       return -1;
     }
 
-    int diameter = 5;
+    int diameter = 3;
     double sigmaI = 12.0;
     double sigmaS = 16.0;
 
-    Mat filteredImageOpenCV;
+    Mat filteredImageOpenCV, myFilteredImage;
     bilateralFilter(originalImage, filteredImageOpenCV, diameter, sigmaI, sigmaS);
-    imwrite("opencv_bilateral_image.bmp", filteredImageOpenCV);
+    imwrite("./opencv_output_images/opencv_bilateral_Elaine.bmp", filteredImageOpenCV);
 
-    Mat myFilteredImage = myBilateralFilter(originalImage, diameter, sigmaI, sigmaS);
-    imwrite("my_bilateral_image.bmp", myFilteredImage);
+    Timer timer;
+    float total_time;
+
+    for (int i = 0; i < num_iterations; i++)
+    {
+        timer.start();
+        myFilteredImage = myBilateralFilter(originalImage, diameter, sigmaI, sigmaS);
+        total_time += timer.elapsedTime();
+        
+    }
+    
+    printf("Average elapsed time for serial version of Bilateral Filter= %2.5f secs\n", total_time / num_iterations);
+    
+    imwrite("./my_output_images/my_bilateral_Elaine.bmp", myFilteredImage);
 
     return 0;
 }
