@@ -1,0 +1,21 @@
+serial_version:
+    average_execution_time(over 10 iterations): 1.63935 secs
+
+parallel_version:
+
+    1. #pragma omp for private(i,j) outside of all 4 loops
+        average_execution_time(over 10 iterations): 1.57366 secs
+
+    2. #pragma omp for outside of 3 inner loops
+        average_execution_time(over 10 iterations): 1.53813 secs
+
+    3. #pragma omp for private(i,j) outside of all 4 loops + num_threads(8)
+        1 thread: average_execution_time(over 10 iterations): 1.506884 secs (1.45850, 1.54934, 1.56905, 1.45677, 1.55475, 1.47170, 1.55665, 1.47554, 1.48922, 1.48732)
+        2 thread: average_execution_time(over 10 iterations): 1.528805 secs (1.48283, 1.47259, 1.49264, 1.55973, 1.51657, 1.63112, 1.54335, 1.53329, 1.46321, 1.59272)
+        3 thread: average_execution_time(over 10 iterations): 1.478911 secs (1.56267, 1.48409, 1.45695, 1.45227, 1.44553, 1.44762, 1.43344, 1.52554, 1.44946, 1.53154)
+        4 thread: average_execution_time(over 10 iterations): 1.457398 secs (1.44075, 1.40539, 1.45420, 1.45630, 1.40553, 1.46244, 1.46801, 1.47413, 1.52495, 1.48228)
+        5 thread: average_execution_time(over 10 iterations): 1.466761 secs (1.45298, 1.51886, 1.44756, 1.44758, 1.41468, 1.45639, 1.58993, 1.40739, 1.42393, 1.50831)
+        6 thread: average_execution_time(over 10 iterations): 1.471073 secs (1.49826, 1.46348, 1.43483, 1.46236, 1.54835, 1.46412, 1.44806, 1.50018, 1.43416, 1.45693)
+        7 thread: average_execution_time(over 10 iterations): 1.453118 secs (1.48056, 1.44157, 1.40928, 1.42194, 1.44843, 1.53619, 1.45339, 1.45442, 1.45913, 1.42627)
+        8 thread: average_execution_time(over 10 iterations): 1.467695 secs (1.54226, 1.48771, 1.46412, 1.46580, 1.44227, 1.41732, 1.55055, 1.48384, 1.43176, 1.39132)
+        16 thread: average_execution_time(over 10 iterations): 1.54498 secs

@@ -1,0 +1,5 @@
+g++ bilateral.cpp Timer.cpp -o bilateral -std=c++11 `pkg-config --cflags --libs opencv`
+./bilateral Elaine.bmp 100
+
+g++ bilateral_omp.cpp Timer.cpp -o bilateral_omp -std=c++11 `pkg-config --cflags --libs opencv` -fopenmp
+./bilateral_omp Elaine.bmp 10

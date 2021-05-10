@@ -1,0 +1,31 @@
+OS:
+    Linux lenovo-Lenovo-ideapad-320-15ABR 4.15.0-142-generic #146-Ubuntu SMP Tue Apr 13 01:11:19 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU:
+    Architecture:        x86_64
+    CPU op-mode(s):      32-bit, 64-bit
+    Byte Order:          Little Endian
+    CPU(s):              4
+    On-line CPU(s) list: 0-3
+    Thread(s) per core:  2
+    Core(s) per socket:  2
+    Socket(s):           1
+    NUMA node(s):        1
+    Vendor ID:           AuthenticAMD
+    CPU family:          21
+    Model:               101
+    Model name:          AMD FX-9800P RADEON R7, 12 COMPUTE CORES 4C+8G
+    Stepping:            1
+    CPU MHz:             1971.535
+    CPU max MHz:         2700.0000
+    CPU min MHz:         1400.0000
+    BogoMIPS:            5390.19
+    Virtualization:      AMD-V
+    L1d cache:           32K
+    L1i cache:           96K
+    L2 cache:            1024K
+    NUMA node0 CPU(s):   0-3
+
+
+Compiler:
+    g++ (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+
