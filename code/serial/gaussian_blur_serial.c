@@ -43,23 +43,20 @@ int main()
 		buffer[i][1]=getc(fIn);					
 		buffer[i][0]=getc(fIn);				
 	}
+
 	float v=1.0 / 256.0;
 	float kernel[5][5]={{1*v,4*v,6*v,4*v,1*v},
 						{4*v,16*v,24*v,16*v,4*v},
 						{6*v,24*v,36*v,24*v,6*v},
 						{4*v,16*v,24*v,16*v,4*v},
 						{1*v,4*v,6*v,4*v,1*v}};
-	for(x=1;x<height-1;x++)
-	{					
-		for(y=1;y<width-1;y++)
-		{
+	for(x=1;x<height-1;x++){					
+		for(y=1;y<width-1;y++){
 			double sum0= 0.0;
 			double sum1= 0.0;
 			double sum2= 0.0;
-			for(i=-1;i<=3;++i)
-			{
-				for(j=-1;j<=3;++j)
-				{	
+			for(i=-1;i<=3;++i){
+				for(j=-1;j<=3;++j){	
 					sum0=sum0+(double)kernel[i+1][j+1]*buffer[(x+i)*width+(y+j)][0];
 					sum1=sum1+(double)kernel[i+1][j+1]*buffer[(x+i)*width+(y+j)][1];
 					sum2=sum2+(double)kernel[i+1][j+1]*buffer[(x+i)*width+(y+j)][2];
